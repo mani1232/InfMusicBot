@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.utils.Compression;
 import ua.mani123.Commands.ICommand;
+import ua.mani123.Commands.ICommandsRegister;
 import ua.mani123.Config.IConfig;
 import ua.mani123.Config.IConfigsMappings;
 import ua.mani123.Console.IConsoleColors;
@@ -26,6 +27,8 @@ public class IMusicBot {
                     .setCompression(Compression.ZLIB)
                     .setStatus(OnlineStatus.DO_NOT_DISTURB)
                     .build();
+            // Commands register
+            new ICommandsRegister(jda);
             // Console init
             boolean isWorking;
             do {

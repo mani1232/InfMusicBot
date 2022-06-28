@@ -11,6 +11,7 @@ public class ICommand extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         switch (event.getName()){
+            case "help" -> System.out.println("ok");
             case "play" -> System.out.println("ok");
             default -> event.replyEmbeds(new EmbedBuilder()
                     .setTitle(event.getName())
