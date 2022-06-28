@@ -1,6 +1,5 @@
 package ua.mani123;
 
-import com.amihaiemil.eoyaml.YamlMapping;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;

@@ -8,7 +8,7 @@ public class IConfigsMappings {
     public static YamlMapping getConfigMappings(){
         return Yaml.createYamlMappingBuilder()
                 .add("bot-token", "TOKEN")
-                .add("default-embed-color", "RED")
+                .add("default-embed-color", "#FF0000")
                 .build();
     }
 

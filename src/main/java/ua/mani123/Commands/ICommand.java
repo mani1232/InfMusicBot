@@ -12,7 +12,11 @@ public class ICommand extends ListenerAdapter {
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         switch (event.getName()){
             case "play" -> System.out.println("ok");
-            default -> event.replyEmbeds(new EmbedBuilder().setTitle(event.getName()).addField(IConfig.lang.string("cmd-not-found"), "", false).setColor(Color.getColor(IConfig.config.string("default-embed-color"))).build()).setEphemeral(true).queue();
+            default -> event.replyEmbeds(new EmbedBuilder()
+                    .setTitle(event.getName())
+                    .addField(IConfig.lang.string("cmd-not-found"), "", false)
+                    .setColor(Color.decode(IConfig.config.string("default-embed-color")))
+                    .build()).setEphemeral(true).queue();
         }
     }
 }
