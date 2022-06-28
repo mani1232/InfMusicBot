@@ -1,0 +1,26 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+version '1.0-SNAPSHOT'
+
+mainClassName = 'ua.mani123.IMusicBot'
+
+def jdaVersion = '5.0.0-alpha.13'
+
+sourceCompatibility = targetCompatibility = 17
+
+repositories {
+    mavenCentral()
+    maven { url "https://m2.dv8tion.net/releases" }
+}
+
+dependencies {
+    implementation("net.dv8tion:JDA:$jdaVersion")
+    implementation("com.amihaiemil.web:eo-yaml:6.0.1")
+    implementation("ch.qos.logback:logback-classic:1.2.11")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+}
+
+compileJava.options.encoding = 'UTF-8'
