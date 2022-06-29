@@ -24,8 +24,8 @@ public class IMusicBot {
             JDA jda = JDABuilder.createDefault(IConfig.config.string("bot-token")).addEventListeners(
                              new ICommand()
                     ).setActivity(Activity.of(Activity.ActivityType.valueOf(
-                            IConfig.config.yamlSequence("bot-status").string(1)),
-                            IConfig.config.yamlSequence("bot-status").string(2)))
+                            IConfig.config.yamlSequence("bot-activity").string(0)),
+                            IConfig.config.yamlSequence("bot-activity").string(1)))
                     .setCompression(Compression.ZLIB)
                     .setStatus(OnlineStatus.valueOf(IConfig.config.string("bot-status")))
                     .build();
