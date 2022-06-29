@@ -17,15 +17,17 @@ import javax.security.auth.login.LoginException;
 public class IMusicBot {
     public static void main(String[] args) {
         try {
-            // Load config.yml
+            // Load configs
             IConfig.config = (IConfig.load("config.yml", IConfigsMappings.getConfigMappings()));
             IConfig.lang = (IConfig.load("lang.yml", IConfigsMappings.getLangMappings()));
             // Discord bot init
             JDA jda = JDABuilder.createDefault(IConfig.config.string("bot-token")).addEventListeners(
                              new ICommand()
-                    ).setActivity(Activity.playing("Minecraft"))
+                    ).setActivity(Activity.of(Activity.ActivityType.valueOf(
+                            IConfig.config.yamlSequence("bot-status").string(1)),
+                            IConfig.config.yamlSequence("bot-status").string(2)))
                     .setCompression(Compression.ZLIB)
-                    .setStatus(OnlineStatus.DO_NOT_DISTURB)
+                    .setStatus(OnlineStatus.valueOf(IConfig.config.string("bot-status")))
                     .build();
             // Commands register
             new ICommandsRegister(jda);
